@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.DS_Store
+Thumbs.db
+
+# Data (too large for GitHub)
+data/
+*.wav
+*.mp3
+
+# Local package installation (run prepare.bat instead)
+site-packages/
+
+# Saved models
+saved_models/
+
+# Results (keep only key figures)
+results/*.json
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
