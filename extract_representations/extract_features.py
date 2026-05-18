@@ -61,5 +61,5 @@ if __name__ == "__main__":
     np.savez("results/mfcc_features.npz",
              X_train=X_train, y_train=y_train,
              X_test=X_test,   y_test=y_test)
-    print("Saved → results/mfcc_features.npz")
+    print("Saved -> results/mfcc_features.npz")
     print(f"Feature dim: {X_train.shape[1]}")

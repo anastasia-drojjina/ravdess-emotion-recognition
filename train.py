@@ -148,7 +148,7 @@ def main():
         lr=cfg.training.learning_rate,
         weight_decay=cfg.training.weight_decay,
     )
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=6, factor=0.5, verbose=True)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=6, factor=0.5)
 
     os.makedirs(cfg.output.model_dir,   exist_ok=True)
     os.makedirs(cfg.output.results_dir, exist_ok=True)
@@ -174,7 +174,7 @@ def main():
             best_val_acc = vl_acc
             patience_cnt = 0
             torch.save(model.state_dict(), ckpt)
-            flag = " ✓ saved"
+            flag = " * saved"
         else:
             patience_cnt += 1
 
