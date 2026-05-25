@@ -34,3 +34,10 @@ results/*.json
 
 # Claude Code
 .claude/
+
+# Presentation generation scripts (local use only)
+generate_slides.py
+create_speaking_notes.py
+create_report.py
+presentation/
+training_log.txt
