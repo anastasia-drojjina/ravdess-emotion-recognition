@@ -7,8 +7,13 @@ Usage:
     python train.py --config config/default.yaml --model.type gru
     python train.py --config config/default.yaml --model.type mlp
 """
-import os, sys
-_site = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site-packages")
+import os, sys, io
+# Force UTF-8 output on Windows
+if sys.stdout.encoding != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+_c_pkgs = r"C:\Users\Anastasia\ravdess-pkgs"
+_site = _c_pkgs if os.path.isdir(_c_pkgs) else os.path.join(os.path.dirname(os.path.abspath(__file__)), "site-packages")
 if os.path.isdir(_site) and _site not in sys.path:
     sys.path.insert(0, _site)
 
@@ -214,7 +219,7 @@ def main():
     with open(os.path.join(cfg.output.results_dir, f"metrics_{name}.json"), "w") as f:
         json.dump(metrics, f, indent=2)
 
-    print(f"Results saved → {cfg.output.results_dir}/")
+    print(f"Results saved -> {cfg.output.results_dir}/")
 
 
 if __name__ == "__main__":

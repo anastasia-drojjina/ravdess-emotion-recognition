@@ -5,7 +5,8 @@ Usage:
     python test.py --config config/default.yaml --model.type cnn
 """
 import os, sys
-_site = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site-packages")
+_c_pkgs = r"C:\Users\Anastasia\ravdess-pkgs"
+_site = _c_pkgs if os.path.isdir(_c_pkgs) else os.path.join(os.path.dirname(os.path.abspath(__file__)), "site-packages")
 if os.path.isdir(_site) and _site not in sys.path:
     sys.path.insert(0, _site)
 
